@@ -1,7 +1,7 @@
 #include<ESP8266WiFi.h>
 #include<ESP8266HTTPClient.h>
-const char *Wifi_network_ssid = "Inam ul Rehman";
-const char *Wifi_network_password = "in123456";
+const char *Wifi_network_ssid = "CAS-SMART";
+const char *Wifi_network_password = "agriculture";
 WiFiClient client;
 WiFiServer server(80);
 HTTPClient http;

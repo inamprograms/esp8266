@@ -3,8 +3,8 @@
 #define ORANGE_LED D1
 #define RED_LED D2 
 WiFiServer server(80);
-const char *Wifi_network_ssid = "Inam ul Rehman";
-const char *Wifi_network_password = "in123456";
+const char *Wifi_network_ssid = "eduroam";
+const char *Wifi_network_password = "INAM#6122";
 void setup() {
   pinMode(GREEN_LED,OUTPUT);
   pinMode(ORANGE_LED,OUTPUT);
