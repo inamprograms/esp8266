@@ -1,6 +1,8 @@
-// VCC - > 3v3
-// gnd -> gnd
-// D4 -> In
+/*
+GND -> GND
+VCC -> 3V3
+iN -> D4
+*/
 #include <ESP8266WiFi.h>
 #include <PubSubClient.h>
 #include<Wire.h>
