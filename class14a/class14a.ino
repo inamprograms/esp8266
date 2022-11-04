@@ -18,7 +18,7 @@ iN -> D4
 Adafruit_SSD1306 display(SCREEN_WIDTH,SCREEN_HEIGHT, &Wire, -1);
 
 const char* ssid = "Inam ul Rehman";
-const char* password = "";
+const char* password = "in123456";
 
 const char *mqtt_broker = "broker.mqttdashboard.com";
 const char *topic = "topicLed";
