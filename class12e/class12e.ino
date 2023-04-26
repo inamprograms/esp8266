@@ -1,8 +1,8 @@
-
 #include <ESP8266WiFi.h>
 #include <PubSubClient.h>
-const char *Wifi_network_ssid = "Inam ul Rehman";
-const char *Wifi_network_password = "in123456";
+#include <WiFiManager.h>
+//const char *Wifi_network_ssid = "";
+//const char *Wifi_network_password = "";
 
 const char*mqtt_broker = "broker.mqttdashboard.com";
 const char *topic = "topicFahim";
@@ -12,12 +12,20 @@ const int mqtt_port = 1883;
 
 WiFiClient espClient;
 PubSubClient client(espClient);
+
+WiFiManager wifiManager;
 void setup() {
 
   Serial.begin(115200);
- Serial.println("Connecting To network: ");
-  Serial.print(Wifi_network_ssid);
-  WiFi.begin(Wifi_network_ssid,Wifi_network_password);
+  
+  wifiManager.autoConnect("AutoConnectAP");
+  Serial.println(WiFi.SSID());
+  Serial.println(WiFi.psk());
+  
+  Serial.println("Connecting To network: ");
+//  Serial.print(Wifi_network_ssid);
+//  WiFi.begin(Wifi_network_ssid,Wifi_network_password);
+  WiFi.begin(WiFi.SSID(),WiFi.psk());
   while(WiFi.status() != WL_CONNECTED){
     Serial.print("<");
     delay(1000);
@@ -26,7 +34,6 @@ void setup() {
   Serial.println("Connected To WiFi network.");
   Serial.print("Ip: ");
   Serial.println(WiFi.localIP());
-
 
 
 client.setServer(mqtt_broker,mqtt_port);
@@ -52,5 +59,6 @@ void callback(char *topic,byte *payload,unsigned int length)
   for(int i=0; i<length; i++){
     Serial.print((char) payload[i]);
     }
+Serial.println();   
 Serial.println("Message End");
   }
